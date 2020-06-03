@@ -21,7 +21,7 @@ export default class MenuPlansContainer extends Component {
                 <ul>
         {this.state.menuPlans.map((plan, idx) => <li><Link to={`/menuplans/${idx}`}>{plan.title}</Link></li>)}
                 </ul>
-                <Route exact path={`${this.props.match.url}/:menuPlanId`} component={MenuPlanShowContainer} />
+                <Route exact path={`${this.props.match.url}/:menuPlanId`} render={routerProps => <MenuPlanShowContainer {...routerProps} menuPlans={this.state.menuPlans} />} />
             </div>
         )
     }

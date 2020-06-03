@@ -5,7 +5,7 @@ export default class MenuPlanShowContainer extends Component {
         return (
             <div>
                 {/* <h1>{this.props.menuPlan.title}</h1> */}
-                <h1>Test show page</h1>
+                <h1>{this.props.menuPlans[this.props.match.params.menuPlanId].title}</h1>
             </div>
         )
     }
