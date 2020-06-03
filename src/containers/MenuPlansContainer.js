@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
-import {Route} from 'react-router-dom'
+import {Link, Route} from 'react-router-dom'
+
 import MenuPlanShowContainer from './MenuPlanShowContainer.js'
+import MenuPlansList from '../components/MenuPlansList.js'
 
 export default class MenuPlansContainer extends Component {
     constructor(props) {
@@ -14,13 +15,14 @@ export default class MenuPlansContainer extends Component {
             ]
         }
     }
+    
+
     render() {
         return (
             <div>
-                <h1>Menu Plans List</h1>
-                <ul>
-        {this.state.menuPlans.map((plan, idx) => <li><Link to={`/menuplans/${idx}`}>{plan.title}</Link></li>)}
-                </ul>
+                <Route exact path={this.props.match.url}>
+                    <MenuPlansList menuPlans={this.state.menuPlans} />
+                </Route>
                 <Route exact path={`${this.props.match.url}/:menuPlanId`} render={routerProps => <MenuPlanShowContainer {...routerProps} menuPlans={this.state.menuPlans} />} />
             </div>
         )

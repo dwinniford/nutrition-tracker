@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import MenuPlansContainer from './containers/MenuPlansContainer.js'
 import SearchContainer from './containers/SearchContainer.js'
