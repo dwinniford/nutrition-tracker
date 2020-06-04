@@ -8,7 +8,7 @@ export default function manageMenus(state = initialState, action) {
     switch (action.type) {
 
     case 'SEARCH':
-        return { ...state, searchResults: action.payload }
+        return { ...state, searchResults: {text: action.text} }
 
     default:
         return state

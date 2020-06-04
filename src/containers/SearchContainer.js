@@ -4,11 +4,17 @@ import {connect} from 'react-redux'
 import SearchResults from '../components/SearchResults.js'
 
 class SearchContainer extends Component {
+    displayResults = () => {
+        if (this.props.results.text) {
+            return <SearchResults results={this.props.results}/>
+        }
+    }
+    
     render() {
         return (
             <div>
-                <SearchForm />
-                <SearchResults />
+                <SearchForm search={this.props.search}/>
+                {this.displayResults()}
             </div>
         )
     }

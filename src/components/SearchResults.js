@@ -5,7 +5,7 @@ export default class SearchResults extends Component {
         return (
             <div>
                 <h3>Results:</h3>
-                <p>fake results</p>
+                <p>{this.props.results.text}</p>
             </div>
         )
     }

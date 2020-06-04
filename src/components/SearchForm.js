@@ -14,7 +14,7 @@ export default class SearchForm extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        console.log("submitting with text:", this.state.text )
+        this.props.search(this.state.text)
         this.setState({text: ''})
     }
 
