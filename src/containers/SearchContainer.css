@@ -1,3 +1,23 @@
+.search-results {
+    display: grid;
+    /* grid-auto-flow: row; */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 5px;
+    background: rgba(0, 0, 0, 0.7);
+    min-width: 320px;
+    max-width: 645px;
+}
+
 .recipe-card {
-    background: rgb(130, 218, 41)
+    background: rgb(130, 218, 41);
+    padding: 10px;
+    width: 300px;
+    
+}
+
+.card-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 5px;
+    border: 5px;
 }
