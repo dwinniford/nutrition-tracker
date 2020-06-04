@@ -12,14 +12,20 @@ export default class SearchForm extends Component {
         this.setState({text: event.target.value})
     }
 
+    handleSubmit = (event) => {
+        event.preventDefault()
+        console.log("submitting with text:", this.state.text )
+        this.setState({text: ''})
+    }
+
     render() {
         return (
             <div>
-                <form>
+                <form onSubmit={this.handleSubmit}>
+                    <h1>Search for a Recipe</h1>
                     <label>Recipe Name</label>
                     <input type="text" onChange={this.handleChange} value={this.state.text}/>
                     <input type="Submit" />
-                    {this.state.text}
                 </form>
             </div>
         )
