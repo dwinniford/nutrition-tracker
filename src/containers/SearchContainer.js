@@ -3,6 +3,7 @@ import SearchForm from '../components/SearchForm.js'
 import {connect} from 'react-redux'
 import SearchResults from '../components/SearchResults.js'
 import {search} from '../actions/search.js'
+import './SearchContainer.css'
 
 class SearchContainer extends Component {
     displayResults = () => {

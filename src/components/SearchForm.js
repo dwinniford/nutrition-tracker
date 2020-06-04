@@ -25,7 +25,7 @@ export default class SearchForm extends Component {
                     <h1>Search for a Recipe</h1>
                     <label>Recipe Name</label>
                     <input type="text" onChange={this.handleChange} value={this.state.text}/>
-                    <input type="Submit" />
+                    <input className="black-button" type="Submit" />
                 </form>
             </div>
         )
