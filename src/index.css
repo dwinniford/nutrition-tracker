@@ -5,6 +5,17 @@
 
 body {
   font-family: aleoLight;
+  
 }
+
+div#root {
+  display: grid;
+  grid-template-columns: 1fr minmax(320px, 645px) 1fr;
+}
+
+div.App {
+  grid-column: 2;
+}
+
 
 

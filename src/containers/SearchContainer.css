@@ -6,6 +6,7 @@
     background: rgba(0, 0, 0, 0.7);
     min-width: 320px;
     max-width: 645px;
+    justify-items: center;
 }
 
 .recipe-card {
