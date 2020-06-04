@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import SearchForm from '../components/SearchForm.js'
 import {connect} from 'react-redux'
 import SearchResults from '../components/SearchResults.js'
+import {search} from '../actions/search.js'
 
 class SearchContainer extends Component {
     displayResults = () => {
-        if (this.props.results.text) {
+        if (this.props.results.status === "complete") {
             return <SearchResults results={this.props.results}/>
         }
     }
@@ -27,7 +28,7 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        search: (text) => dispatch({type: 'SEARCH', text})
+        search: (text) => dispatch(search(text))
     }
 }
 
