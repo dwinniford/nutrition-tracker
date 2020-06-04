@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Link, Route} from 'react-router-dom'
+import {Route} from 'react-router-dom'
 
 import MenuPlanShowContainer from './MenuPlanShowContainer.js'
 import MenuPlansList from '../components/MenuPlansList.js'
