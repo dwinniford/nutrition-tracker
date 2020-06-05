@@ -1,10 +1,10 @@
 const initialState = {
     searchResults: {},
-    newMenuPlan: [],
-    menuPlans: []
+    newMealPlan: [],
+    mealPlans: []
 }
 
-export default function manageMenus(state = initialState, action) {
+export default function manageMeals(state = initialState, action) {
     switch (action.type) {
 
     case 'SEARCH':

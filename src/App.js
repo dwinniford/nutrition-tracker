@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import MenuPlansContainer from './containers/MenuPlansContainer.js'
+import MealPlansContainer from './containers/MealPlansContainer.js'
 import SearchContainer from './containers/SearchContainer.js'
 import About from './components/About.js'
 import Home from './components/Home.js'
@@ -20,7 +20,7 @@ function App() {
         <NavBar />
         <Route path="/search" component={SearchContainer} />
         
-        <Route path="/menuplans" component={MenuPlansContainer} />
+        <Route path="/mealplans" component={MealPlansContainer} />
         <Route path="/about" component={About} />
         <Route exact path="/" component={Home} />
       </div>

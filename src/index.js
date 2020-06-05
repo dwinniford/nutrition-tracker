@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import manageMenus from './reducers/manageMenus.js'
+import manageMeals from './reducers/manageMeals.js'
 import {createStore, applyMiddleware} from 'redux'
 import thunk from 'redux-thunk'
 import {Provider} from 'react-redux'
 
-const store = createStore(manageMenus, applyMiddleware(thunk))
+const store = createStore(manageMeals, applyMiddleware(thunk))
 
 ReactDOM.render(
   <React.StrictMode>
