@@ -6,7 +6,7 @@ import About from './components/About.js'
 import Home from './components/Home.js'
 import NavBar from './components/NavBar.js'
 import ReactDom from 'react-dom'
-import {BrowserRouter, Route} from 'react-router-dom'
+import {BrowserRouter, Route, Link} from 'react-router-dom'
 
 
  
@@ -17,7 +17,9 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <NavBar />
+        <NavBar>
+          
+        </NavBar>
         <Route path="/search" component={SearchContainer} />
         
         <Route path="/mealplans" component={MealPlansContainer} />
