@@ -5,7 +5,9 @@ export default class RecipeNutritionCard extends Component {
     listItem = (nutrient) => {
         return (<li>
             {`${this.props.recipe.totalNutrients[nutrient].label} 
-            ${Math.floor(this.props.recipe.totalNutrients.CA.quantity) + this.props.recipe.totalNutrients.CA.unit}`}
+            ${Math.floor(this.props.recipe.totalNutrients[nutrient].quantity)/this.props.recipe.yield + this.props.recipe.totalNutrients[nutrient].unit}, 
+            ${Math.floor(this.props.recipe.totalDaily[nutrient].quantity)/this.props.recipe.yield + this.props.recipe.totalDaily[nutrient].unit}
+            `}
         </li>)
     } 
     
@@ -15,6 +17,7 @@ export default class RecipeNutritionCard extends Component {
         return (
             <div>
                 <h3>8 Common Shortfall Nutrients</h3>
+                <p>(amount per serving, % of daily value)</p>
                 <ul>
                     {this.nutrientsArray.map((nutrient) => this.listItem(nutrient))}
                 </ul>
