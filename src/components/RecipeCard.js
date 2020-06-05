@@ -13,7 +13,7 @@ export default class RecipeCard extends Component {
         if (this.state.displayNutrition) {
             return <RecipeNutritionCard recipe={this.props.recipe}/>
         } else {
-            return <img src={this.props.recipe.image} />
+            return <img src={this.props.recipe.image} alt={this.props.recipe.label}/>
         }
     }
     
