@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import {Route} from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom'
 
 import MealPlanShowContainer from './MealPlanShowContainer.js'
 import MealPlansList from '../components/MealPlansList.js'
+import MealPlansNewContainer from './MealPlansNewContainer.js'
 
 export default class MealPlansContainer extends Component {
     constructor(props) {
@@ -20,10 +21,15 @@ export default class MealPlansContainer extends Component {
     render() {
         return (
             <div>
-                <Route exact path={this.props.match.url}>
-                    <MealPlansList mealPlans={this.state.mealPlans} />
-                </Route>
-                <Route exact path={`${this.props.match.url}/:mealPlanId`} render={routerProps => <MealPlanShowContainer {...routerProps} mealPlans={this.state.mealPlans} />} />
+                <Switch>
+                    <Route exact path={this.props.match.url}>
+                        <MealPlansList mealPlans={this.state.mealPlans} />
+                    </Route>
+                    <Route path={`${this.props.match.url}/new`}>
+                        <MealPlansNewContainer />
+                    </Route>
+                    <Route path={`${this.props.match.url}/:mealPlanId`} render={routerProps => <MealPlanShowContainer {...routerProps} mealPlans={this.state.mealPlans} />} />
+                </Switch>
             </div>
         )
     }
