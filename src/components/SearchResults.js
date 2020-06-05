@@ -8,7 +8,7 @@ export default class SearchResults extends Component {
             <div>
                 <h3>Results for: {this.props.results.q}</h3>
                 <div className="search-results">
-                    {this.props.results.hits.map(hit => <RecipeCard recipe={hit.recipe} />)}
+                    {this.props.results.hits.map(hit => <RecipeCard recipe={hit.recipe} addRecipe={this.props.addRecipe} />)}
                 </div>
             </div>
         )

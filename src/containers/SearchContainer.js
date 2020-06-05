@@ -8,7 +8,7 @@ import './SearchContainer.css'
 class SearchContainer extends Component {
     displayResults = () => {
         if (this.props.results.status === "complete") {
-            return <SearchResults results={this.props.results}/>
+            return <SearchResults results={this.props.results} addRecipe={this.props.addRecipe}/>
         }
     }
     
@@ -29,7 +29,8 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        search: (text) => dispatch(search(text))
+        search: (text) => dispatch(search(text)),
+        addRecipe: (recipe) => dispatch({type: "ADD_RECIPE", recipe})
     }
 }
 

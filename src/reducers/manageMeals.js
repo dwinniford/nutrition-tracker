@@ -12,6 +12,8 @@ export default function manageMeals(state = initialState, action) {
     case 'LOADING_SEARCH':
         console.log("LOADING SEARCH RESULTS")
         return state
+    case 'ADD_RECIPE':
+        return { ...state, newMealPlan: [...state.newMealPlan, action.recipe]}
 
     default:
         return state
