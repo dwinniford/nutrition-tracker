@@ -17,6 +17,8 @@ export default function newMealPlan(state = initialState, action) {
             return {...state, 
                 recipes: state.recipes.map(recipe => assignDay(recipe, action.name, action.day))
             }
+        case 'EDIT_TITLE':
+            return {...state, title: action.title}
         default:
             return state
     }

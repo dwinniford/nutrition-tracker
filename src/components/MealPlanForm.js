@@ -14,7 +14,7 @@ export default class MealPlanForm extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault() 
-        this.props.editTitle(this.state)
+        this.props.editTitle(this.state.text)
         this.setState({text: ''})
     }
     

@@ -45,7 +45,7 @@ class MealPlansNewContainer extends Component {
         return (
             <div>
                 <h1>New Meal Plan</h1>
-                <MealPlanForm />
+                <MealPlanForm editTitle={this.props.editTitle} />
                 <p>drop zone: {this.state.dropZoneId}</p>
                 <div className="newRecipes">
                     {this.props.newMealPlan.recipes.map(recipe => this.recipeButton(recipe))}
@@ -64,7 +64,10 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-    return {assignDay: (name, day) => dispatch({type: "ASSIGN_DAY", name, day})}
+    return {
+        assignDay: (name, day) => dispatch({type: "ASSIGN_DAY", name, day}),
+        editTitle: (title) => dispatch({type: 'EDIT_TITLE', title})
+    }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MealPlansNewContainer)
