@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import RecipeCard from '../components/RecipeCard.js'
 import './MealPlansNewContainer.css'
 import MealPlanForm from '../components/MealPlanForm.js'
+import DayCard from '../components/DayCard.js'
 
 class MealPlansNewContainer extends Component {
     constructor(props) {
@@ -41,10 +42,6 @@ class MealPlansNewContainer extends Component {
         this.setState({dropZoneId: event.target.dataset.dayId})
     }
 
-    dayArray = (day) => {
-        return this.props.newMealPlan.recipes.filter(recipe => recipe.day === day)
-    }
-
     render() {
         return (
             <div>
@@ -55,10 +52,7 @@ class MealPlansNewContainer extends Component {
                 <div className="newRecipes">
                     {this.props.newMealPlan.recipes.map(recipe => this.recipeButton(recipe))}
                 </div>
-                <div data-day-id="1" onDragOver={this.handleDragOver} onDrop={this.handleDrop} className="day-1" >
-                    <h3 >Day 1</h3>
-                {this.dayArray("1") ? this.dayArray("1").map(recipe => <button className="black-button">{recipe.label}</button>) : null }
-                </div>
+                <DayCard newMealPlan={this.props.newMealPlan} handleDragOver={this.handleDragOver} handleDrop={this.handleDrop} />
             </div>
         )
     }
