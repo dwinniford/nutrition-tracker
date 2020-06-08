@@ -22,6 +22,13 @@ export default function newMealPlan(state = initialState, action) {
             return {...state, title: action.title}
         case 'ADD_DAY':
             return {...state, days: state.days + 1}
+        case "SAVING_MEALPLAN":
+            console.log("saving")
+            return state
+        case "SAVED_MEALPLAN":
+            console.log("Saved to backend")
+            return state
+            
         default:
             return state
     }

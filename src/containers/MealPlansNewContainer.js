@@ -4,6 +4,7 @@ import RecipeCard from '../components/RecipeCard.js'
 import './MealPlansNewContainer.css'
 import MealPlanForm from '../components/MealPlanForm.js'
 import DayCard from '../components/DayCard.js'
+import {saveMealPlan} from '../actions/saveMealPlan.js'
 
 class MealPlansNewContainer extends Component {
     constructor(props) {
@@ -55,6 +56,11 @@ class MealPlansNewContainer extends Component {
         return dayCards
     }
 
+    handleSave = (event) => {
+        event.preventDefault()
+        this.props.saveMealPlan(this.state)
+    }
+
     render() {
         return (
             <div>
@@ -66,7 +72,7 @@ class MealPlansNewContainer extends Component {
                     {this.props.newMealPlan.recipes.map(recipe => this.recipeButton(recipe))}
                 </div>
                 {this.renderDayCards()}
-                {/* <DayCard recipes={this.filterArray("1")} handleDragOver={this.handleDragOver} handleDrop={this.handleDrop} /> */}
+                <button onClick={this.handleSave} className="black-button">Save</button>
             </div>
         )
     }
@@ -80,7 +86,8 @@ const mapDispatchToProps = dispatch => {
     return {
         assignDay: (name, day) => dispatch({type: "ASSIGN_DAY", name, day}),
         editTitle: (title) => dispatch({type: 'EDIT_TITLE', title}),
-        addDay: () => dispatch({type: 'ADD_DAY'})
+        addDay: () => dispatch({type: 'ADD_DAY'}),
+        saveMealPlan: (mealPlan) => dispatch(saveMealPlan(mealPlan))
     }
 }
 
