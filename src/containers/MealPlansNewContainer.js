@@ -40,7 +40,6 @@ class MealPlansNewContainer extends Component {
     }
 
     render() {
-        console.log(this.dayArray("1"))
         return (
             <div>
                 <h1>New Meal Plan</h1>
@@ -50,7 +49,7 @@ class MealPlansNewContainer extends Component {
                 </div>
                 <div data-day-id="1" onDragOver={this.handleDragOver} onDrop={this.handleDrop} className="day-1" >
                     <h3 >Day 1</h3>
-                {this.dayArray("1") ? this.dayArray("1").map(recipe => <button>{recipe.label}</button>) : null }
+                {this.dayArray("1") ? this.dayArray("1").map(recipe => <button className="black-button">{recipe.label}</button>) : null }
                 </div>
             </div>
         )
