@@ -1,9 +1,11 @@
-const initialState = []
+const initialState = {recipes: []}
 
 export default function newMealPlan(state = initialState, action) {
     switch (action.type) {
         case 'ADD_RECIPE':
-            return [...state, action.recipe]
+            return {...state, 
+                recipes:[...state.recipes, action.recipe]
+            }
         case 'ASSIGN_DAY':
             const assignDay = (recipe, name, day) => {
                 if (recipe.label === name ) {
@@ -12,7 +14,9 @@ export default function newMealPlan(state = initialState, action) {
                     return recipe
                 }
             }
-            return state.map(recipe => assignDay(recipe, action.name, action.day))
+            return {...state, 
+                recipes: state.recipes.map(recipe => assignDay(recipe, action.name, action.day))
+            }
         default:
             return state
     }
