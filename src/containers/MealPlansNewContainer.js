@@ -46,6 +46,15 @@ class MealPlansNewContainer extends Component {
         return this.props.newMealPlan.recipes.filter(recipe => recipe.day === day)
     }
 
+    renderDayCards = () => {
+        let dayCards = []
+        for (let start = 1; start <= this.props.newMealPlan.days; start++) {
+            dayCards.push(<DayCard day={start.toString()} recipes={this.filterArray(start.toString())} handleDragOver={this.handleDragOver} handleDrop={this.handleDrop} />
+            ) 
+        }
+        return dayCards
+    }
+
     render() {
         return (
             <div>
@@ -56,7 +65,8 @@ class MealPlansNewContainer extends Component {
                 <div className="newRecipes">
                     {this.props.newMealPlan.recipes.map(recipe => this.recipeButton(recipe))}
                 </div>
-                <DayCard recipes={this.filterArray("1")} handleDragOver={this.handleDragOver} handleDrop={this.handleDrop} />
+                {this.renderDayCards()}
+                {/* <DayCard recipes={this.filterArray("1")} handleDragOver={this.handleDragOver} handleDrop={this.handleDrop} /> */}
             </div>
         )
     }
