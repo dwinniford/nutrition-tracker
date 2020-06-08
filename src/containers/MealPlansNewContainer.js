@@ -2,13 +2,15 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import RecipeCard from '../components/RecipeCard.js'
 import './MealPlansNewContainer.css'
+import MealPlanForm from '../components/MealPlanForm.js'
 
 class MealPlansNewContainer extends Component {
     constructor(props) {
         super(props) 
         this.state = {
             dropZoneId: null,
-            name: ''
+            name: '',
+            editTitle: false
         }
     }
 
@@ -43,6 +45,7 @@ class MealPlansNewContainer extends Component {
         return (
             <div>
                 <h1>New Meal Plan</h1>
+                <MealPlanForm />
                 <p>drop zone: {this.state.dropZoneId}</p>
                 <div className="newRecipes">
                     {this.props.newMealPlan.map(recipe => this.recipeButton(recipe))}
