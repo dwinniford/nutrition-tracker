@@ -44,7 +44,7 @@ class MealPlansNewContainer extends Component {
     render() {
         return (
             <div>
-                <h1>New Meal Plan</h1>
+                <h1>{this.props.newMealPlan.title}</h1>
                 <MealPlanForm editTitle={this.props.editTitle} />
                 <p>drop zone: {this.state.dropZoneId}</p>
                 <div className="newRecipes">

@@ -1,4 +1,4 @@
-const initialState = {recipes: []}
+const initialState = {recipes: [], title: "New Meal Plan"}
 
 export default function newMealPlan(state = initialState, action) {
     switch (action.type) {
