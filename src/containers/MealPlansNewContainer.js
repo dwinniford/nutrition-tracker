@@ -14,13 +14,17 @@ class MealPlansNewContainer extends Component {
         }
     }
 
-    handleClick = (event) => {
+    handleAddDayClick = (event) => {
+        this.props.addDay()
+    }
+
+    handleRecipeClick = (event) => {
         this.setState({name: event.target.innerText})
         console.log(event.target.innerText)
     }
     
     recipeButton = (recipe) => {
-        return <button draggable className="black-button" onMouseDown={this.handleClick}>
+        return <button draggable className="black-button" onMouseDown={this.handleRecipeClick}>
             {recipe.label}
         </button>
     }
@@ -46,6 +50,7 @@ class MealPlansNewContainer extends Component {
             <div>
                 <h1>{this.props.newMealPlan.title}</h1>
                 <MealPlanForm editTitle={this.props.editTitle} />
+                <button onClick={this.handleAddDayClick} className="black-button">Add Day</button>
                 <p>drop zone: {this.state.dropZoneId}</p>
                 <div className="newRecipes">
                     {this.props.newMealPlan.recipes.map(recipe => this.recipeButton(recipe))}
@@ -66,7 +71,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         assignDay: (name, day) => dispatch({type: "ASSIGN_DAY", name, day}),
-        editTitle: (title) => dispatch({type: 'EDIT_TITLE', title})
+        editTitle: (title) => dispatch({type: 'EDIT_TITLE', title}),
+        addDay: () => dispatch({type: 'ADD_DAY'})
     }
 }
 

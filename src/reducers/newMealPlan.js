@@ -1,4 +1,4 @@
-const initialState = {recipes: [], title: "New Meal Plan"}
+const initialState = {recipes: [], title: "New Meal Plan", days: 1}
 
 export default function newMealPlan(state = initialState, action) {
     switch (action.type) {
@@ -19,6 +19,8 @@ export default function newMealPlan(state = initialState, action) {
             }
         case 'EDIT_TITLE':
             return {...state, title: action.title}
+        case 'ADD_DAY':
+            return {...state, days: state.days + 1}
         default:
             return state
     }
