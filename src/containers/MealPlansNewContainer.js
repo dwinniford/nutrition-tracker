@@ -43,7 +43,7 @@ class MealPlansNewContainer extends Component {
     }
 
     filterArray = (day) => {
-        return this.props.newMealPlan.recipes.filter(recipe => recipe.day === day)
+        return this.props.newMealPlan.recipes.filter(recipe => recipe.days.includes(day))
     }
 
     renderDayCards = () => {

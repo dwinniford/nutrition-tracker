@@ -3,13 +3,14 @@ const initialState = {recipes: [], title: "New Meal Plan", days: 1}
 export default function newMealPlan(state = initialState, action) {
     switch (action.type) {
         case 'ADD_RECIPE':
+            let newRecipe = {...action.recipe, days: []}
             return {...state, 
-                recipes:[...state.recipes, action.recipe]
+                recipes:[...state.recipes, newRecipe]
             }
         case 'ASSIGN_DAY':
             const assignDay = (recipe, name, day) => {
                 if (recipe.label === name ) {
-                    return {...recipe, day: day} 
+                    return {...recipe, days: [...recipe.days, day]} 
                 } else {
                     return recipe
                 }
