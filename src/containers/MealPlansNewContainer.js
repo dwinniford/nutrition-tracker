@@ -42,6 +42,10 @@ class MealPlansNewContainer extends Component {
         this.setState({dropZoneId: event.target.dataset.dayId})
     }
 
+    filterArray = (day) => {
+        return this.props.newMealPlan.recipes.filter(recipe => recipe.day === day)
+    }
+
     render() {
         return (
             <div>
@@ -52,7 +56,7 @@ class MealPlansNewContainer extends Component {
                 <div className="newRecipes">
                     {this.props.newMealPlan.recipes.map(recipe => this.recipeButton(recipe))}
                 </div>
-                <DayCard newMealPlan={this.props.newMealPlan} handleDragOver={this.handleDragOver} handleDrop={this.handleDrop} />
+                <DayCard recipes={this.filterArray("1")} handleDragOver={this.handleDragOver} handleDrop={this.handleDrop} />
             </div>
         )
     }
