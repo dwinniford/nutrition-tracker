@@ -16,6 +16,14 @@ export default class MealPlansContainer extends Component {
             ]
         }
     }
+
+    componentDidMount() {
+        fetch("http://localhost:3000/meal_plans")
+            .then(resp => resp.json())
+            .then(function(json) {
+                console.log(json)
+            })
+    }
     
 
     render() {

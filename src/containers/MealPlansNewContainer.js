@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import RecipeCard from '../components/RecipeCard.js'
+// import RecipeCard from '../components/RecipeCard.js'
 import './MealPlansNewContainer.css'
 import MealPlanForm from '../components/MealPlanForm.js'
 import DayCard from '../components/DayCard.js'
