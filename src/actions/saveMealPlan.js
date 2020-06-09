@@ -1,16 +1,22 @@
-const BACKEND_URL = ""
+const BACKEND_URL = "http://localhost:3000"
+
+function getCSRFToken() {
+    return unescape(document.cookie.split('=')[1])
+  }
 
 export const saveMealPlan = (mealPlan) => {
     return (dispatch) => {
         dispatch({type: "SAVING_MEALPLAN"})
         let configObj = {
             method: 'POST',
+            credentials: 'include',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'X-CSRF-Token': getCSRFToken()
             },
             body: JSON.stringify(mealPlan)
         }
-        fetch(BACKEND_URL + "/mealplans", configObj)
+        fetch(BACKEND_URL + "/meal_plans", configObj)
             .then(resp => resp.json())
             .then(function(json) {
                 dispatch({type: "SAVED_MEALPLAN", json})

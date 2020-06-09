@@ -58,7 +58,7 @@ class MealPlansNewContainer extends Component {
 
     handleSave = (event) => {
         event.preventDefault()
-        this.props.saveMealPlan(this.state)
+        this.props.saveMealPlan(this.props.newMealPlan)
     }
 
     render() {

@@ -26,7 +26,8 @@ export default function newMealPlan(state = initialState, action) {
             console.log("saving")
             return state
         case "SAVED_MEALPLAN":
-            console.log("Saved to backend")
+            console.log("Saved to backend", action.json)
+
             return state
             
         default:
