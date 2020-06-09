@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import MealPlanDay from '../components/MealPlanDay.js'
+import MealPlanDay from '../components/MealPlan/MealPlanDay.js'
 
 export default class MealPlanShowContainer extends Component {
     
