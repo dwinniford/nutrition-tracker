@@ -4,8 +4,10 @@ import {Route, Switch} from 'react-router-dom'
 import MealPlanShowContainer from './MealPlanShowContainer.js'
 import MealPlansList from '../components/MealPlansList.js'
 import MealPlansNewContainer from './MealPlansNewContainer.js'
+import {loadMealPlans} from '../actions/loadMealPlans.js'
+import {connect} from 'react-redux'
 
-export default class MealPlansContainer extends Component {
+class MealPlansContainer extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -18,11 +20,7 @@ export default class MealPlansContainer extends Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:3000/meal_plans")
-            .then(resp => resp.json())
-            .then(function(json) {
-                console.log(json)
-            })
+        this.props.loadMealPlans()
     }
     
 
@@ -42,3 +40,18 @@ export default class MealPlansContainer extends Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        mealPlans: state.mealPlans
+    }
+}
+
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        loadMealPlans: () => dispatch(loadMealPlans())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MealPlansContainer)
