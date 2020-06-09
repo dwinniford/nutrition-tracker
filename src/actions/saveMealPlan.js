@@ -19,7 +19,7 @@ export const saveMealPlan = (mealPlan) => {
         fetch(BACKEND_URL + "/meal_plans", configObj)
             .then(resp => resp.json())
             .then(function(json) {
-                dispatch({type: "SAVED_MEALPLAN", json})
+                dispatch({type: "ADD_MEALPLAN", json})
             })
     }
 }
