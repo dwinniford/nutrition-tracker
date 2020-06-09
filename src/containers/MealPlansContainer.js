@@ -8,16 +8,16 @@ import {loadMealPlans} from '../actions/loadMealPlans.js'
 import {connect} from 'react-redux'
 
 class MealPlansContainer extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            mealPlans: [
-                {title: "Mediteranean Day"},
-                {title: "Middleaster Week"},
-                {title: "Mexican meal plan"}
-            ]
-        }
-    }
+    // constructor(props) {
+    //     super(props)
+    //     this.state = {
+    //         mealPlans: [
+    //             {title: "Mediteranean Day"},
+    //             {title: "Middleaster Week"},
+    //             {title: "Mexican meal plan"}
+    //         ]
+    //     }
+    // }
 
     componentDidMount() {
         this.props.loadMealPlans()
@@ -29,12 +29,12 @@ class MealPlansContainer extends Component {
             <div>
                 <Switch>
                     <Route exact path={this.props.match.url}>
-                        <MealPlansList mealPlans={this.state.mealPlans} />
+                        <MealPlansList mealPlans={this.props.mealPlans} />
                     </Route>
                     <Route path={`${this.props.match.url}/new`}>
                         <MealPlansNewContainer />
                     </Route>
-                    <Route path={`${this.props.match.url}/:mealPlanId`} render={routerProps => <MealPlanShowContainer {...routerProps} mealPlans={this.state.mealPlans} />} />
+                    <Route path={`${this.props.match.url}/:mealPlanId`} render={routerProps => <MealPlanShowContainer {...routerProps} mealPlans={this.props.mealPlans} />} />
                 </Switch>
             </div>
         )
