@@ -4,15 +4,16 @@ import {Link} from 'react-router-dom'
 export default class MealPlansList extends Component {
     mealPlansList = () => {
         return this.props.mealPlans.map((plan, idx) => 
-            <li>
-                <Link to={`/mealplans/${idx}`}>
-                    {plan.title}
+            <li key={idx}>
+                <Link className="black-button" to={`/mealplans/${idx}`}>
+                    {plan.title} - {plan.days.length} Days
                 </Link>
             </li>
         )
     }
 
     render() {
+        console.log(this.props.mealPlans)
         return (
             <div>
                 
