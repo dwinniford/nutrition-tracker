@@ -11,7 +11,7 @@ export default class RecipeCard extends Component {
 
     displayContent = () => {
         if (this.state.displayNutrition) {
-            return <RecipeNutritionCard recipe={this.props.recipe}/>
+            return <RecipeNutritionCard recipe={this.props.recipe} nutrients={this.props.nutrients}/>
         } else {
             return <img src={this.props.recipe.image} alt={this.props.recipe.label}/>
         }

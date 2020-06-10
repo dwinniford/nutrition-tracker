@@ -2,13 +2,28 @@ import React, { Component } from 'react'
 import RecipeCard from './RecipeCard'
 
 export default class SearchResults extends Component {
+    
+    nutrientSummary = (recipe, nutrient) => {
+        return {
+            label: recipe.totalNutrients[nutrient].label,
+            total_amount: Math.floor(recipe.totalNutrients[nutrient].quantity/recipe.yield),
+            percent_of_daily_value: Math.floor(recipe.totalDaily[nutrient].quantity/recipe.yield),
+            unit: recipe.totalNutrients[nutrient].unit
+        }
+    }
+
+    recipeNutrition = (recipe) => {
+        const nutrientsArray = ["CA", "FE", "MG", "K", "VITA_RAE", "VITC", "VITD", "TOCPHA"]
+        return nutrientsArray.map(nutrient => this.nutrientSummary(recipe, nutrient))
+    }
+    
     render() {
-        console.log(this.props.results)
+        
         return (
             <div>
                 <h3>Results for: {this.props.results.q}</h3>
                 <div className="search-results">
-                    {this.props.results.hits.map(hit => <RecipeCard recipe={hit.recipe} addRecipe={this.props.addRecipe} />)}
+                    {this.props.results.hits.map(hit => <RecipeCard nutrients={this.recipeNutrition(hit.recipe)} recipe={hit.recipe} addRecipe={this.props.addRecipe} />)}
                 </div>
             </div>
         )

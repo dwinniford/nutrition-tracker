@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import MealPlanDayNutrition from './MealPlanDayNutrition.js'
+import RecipeCard from '../RecipeCard.js'
 
 export default class MealPlanDay extends Component {
     
@@ -13,6 +14,7 @@ export default class MealPlanDay extends Component {
                 <h3>Day {this.props.day.number}</h3>
                 {this.renderRecipeButtons()}
                 <MealPlanDayNutrition recipes={this.props.day.recipes}/>
+                {this.props.day.recipes.map(r => <RecipeCard recipe={r} />)}
             </div>
         )
     }
