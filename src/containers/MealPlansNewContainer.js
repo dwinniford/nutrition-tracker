@@ -37,6 +37,18 @@ class MealPlansNewContainer extends Component {
         this.props.assignDay(this.state.name, this.state.dropZoneId)
     }
 
+    handleDragEnter = (event) => {
+        event.preventDefault()
+        console.log("Entering", event.target.dataset.dayId)
+        this.setState({dropZoneId: event.target.dataset.dayId})
+    }
+
+    handleDragLeave = (event) => {
+        event.preventDefault()
+        console.log("Leaving", event.target.dataset.dayId)
+        this.setState({dropZoneId: null})
+    }
+
     handleDragOver = (event) => {
         event.preventDefault()
         console.log("Dragging over", event.target.dataset.dayId)
@@ -50,7 +62,15 @@ class MealPlansNewContainer extends Component {
     renderDayCards = () => {
         let dayCards = []
         for (let start = 1; start <= this.props.newMealPlan.days; start++) {
-            dayCards.push(<DayCard day={start.toString()} recipes={this.filterArray(start.toString())} handleDragOver={this.handleDragOver} handleDrop={this.handleDrop} />
+            dayCards.push(
+                <DayCard 
+                    day={start.toString()} 
+                    recipes={this.filterArray(start.toString())} 
+                    handleDragOver={this.handleDragOver} 
+                    handleDragEnter={this.handleDragEnter} 
+                    handleDragLeave={this.handleDragLeave} 
+                    handleDrop={this.handleDrop} 
+                />
             ) 
         }
         return dayCards
