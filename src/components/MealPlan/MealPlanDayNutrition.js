@@ -28,6 +28,7 @@ export default class MealPlanDayNutrition extends Component {
         return nutrientSummary
     }
 
+    // reduces arrays to total for each nutrient
     reduceTotalsArrays = () => {
         const nutrientSummary = this.collectAllTotals()
         const keys = Object.keys(nutrientSummary)
@@ -42,6 +43,7 @@ export default class MealPlanDayNutrition extends Component {
         return nutrientSummary
     }
 
+    // adds unit to each nutrient
     setUnit = (nutrientSummary) => {
         this.props.recipes[0].nutrients.forEach(function(nutrient) {
             nutrientSummary[nutrient.name].unit = nutrient.unit
@@ -63,19 +65,34 @@ export default class MealPlanDayNutrition extends Component {
 
    
     listItem = (data, name) => {
-        return (<li>
-            {name}: {data.totalAmount} {data.unit}, {data.totalDailyValue}% 
-        </li>)
+        return (<tr>
+            <td>{name}:</td>
+            <td>{data.totalAmount} {data.unit}</td>
+            <td>{data.totalDailyValue}%</td>
+        </tr>)
     } 
     
     render() {
         return (
-            <div>
-                <p>(total amount, total % of daily value) </p>
-                <ul>
-                    {this.displaySummary()}
-                </ul>
-            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nutrient</th>
+                        <th>total amount</th>
+                        <th>total % of daily value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {this.displaySummary()}
+                </tbody>
+
+            </table>
+            // <div>
+            //     <p>(total amount, total % of daily value) </p>
+            //     <ul>
+            //         {this.displaySummary()}
+            //     </ul>
+            // </div>
         )
     }
 }
