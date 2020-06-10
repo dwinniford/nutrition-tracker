@@ -20,33 +20,27 @@ class MealPlansNewContainer extends Component {
         this.props.addDay()
     }
 
-    handleRecipeClick = (event) => {
-        this.setState({name: event.target.innerText})
-        console.log(event.target.innerText)
-    }
+    // handleRecipeClick = (event) => {
+    //     this.setState({name: event.target.innerText})
+    //     console.log(event.target.innerText)
+    // }
     
     recipeButton = (recipe) => {
-        return <button draggable className="black-button" onMouseDown={this.handleRecipeClick}>
+        return <button onDragStart={this.handleDragStart} draggable className="black-button" onMouseDown={this.handleRecipeClick}>
             {recipe.label}
         </button>
+    }
+
+    handleDragStart = (event) => {
+        this.setState({name: event.target.innerText})
+        console.log(event.target.innerText)
+
     }
 
     handleDrop = (event) => {
         event.preventDefault()
         console.log("Dropping", event)
         this.props.assignDay(this.state.name, this.state.dropZoneId)
-    }
-
-    handleDragEnter = (event) => {
-        event.preventDefault()
-        console.log("Entering", event.target.dataset.dayId)
-        this.setState({dropZoneId: event.target.dataset.dayId})
-    }
-
-    handleDragLeave = (event) => {
-        event.preventDefault()
-        console.log("Leaving", event.target.dataset.dayId)
-        this.setState({dropZoneId: null})
     }
 
     handleDragOver = (event) => {
@@ -67,8 +61,6 @@ class MealPlansNewContainer extends Component {
                     day={start.toString()} 
                     recipes={this.filterArray(start.toString())} 
                     handleDragOver={this.handleDragOver} 
-                    handleDragEnter={this.handleDragEnter} 
-                    handleDragLeave={this.handleDragLeave} 
                     handleDrop={this.handleDrop} 
                 />
             ) 
