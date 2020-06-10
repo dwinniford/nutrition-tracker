@@ -3,11 +3,16 @@ import DayNutritionCard from './DayNutritionCard.js'
 
 export default class DayCard extends Component {
     
+    displayDropZone = () => {
+        return this.props.dragging ? "drop-zone" : null
+    }
+
     render() {
         return (
             
                 <div className="day-card" >
-                    <h3 
+                    <h3
+                     className={this.displayDropZone()}
                     data-day-id={this.props.day} 
                     onDragOver={this.props.handleDragOver}
                     onDrop={this.props.handleDrop}

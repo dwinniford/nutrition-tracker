@@ -12,7 +12,8 @@ class MealPlansNewContainer extends Component {
         this.state = {
             dropZoneId: null,
             name: '',
-            editTitle: false
+            editTitle: false,
+            dragging: false
         }
     }
 
@@ -26,13 +27,17 @@ class MealPlansNewContainer extends Component {
     // }
     
     recipeButton = (recipe) => {
-        return <button onDragStart={this.handleDragStart} draggable className="black-button" onMouseDown={this.handleRecipeClick}>
-            {recipe.label}
+        return <button 
+                onDragStart={this.handleDragStart} 
+                draggable className="black-button" 
+                onMouseDown={this.handleRecipeClick}
+                >
+                {recipe.label}
         </button>
     }
 
     handleDragStart = (event) => {
-        this.setState({name: event.target.innerText})
+        this.setState({name: event.target.innerText, dragging: true})
         console.log(event.target.innerText)
 
     }
@@ -61,7 +66,8 @@ class MealPlansNewContainer extends Component {
                     day={start.toString()} 
                     recipes={this.filterArray(start.toString())} 
                     handleDragOver={this.handleDragOver} 
-                    handleDrop={this.handleDrop} 
+                    handleDrop={this.handleDrop}
+                    dragging={this.state.dragging} 
                 />
             ) 
         }
