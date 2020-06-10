@@ -13,7 +13,6 @@ export default class MealPlansList extends Component {
     }
 
     render() {
-        console.log(this.props.mealPlans)
         return (
             <div>
                 

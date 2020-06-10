@@ -6,6 +6,7 @@ export default function mealPlans(state = initialState, action) {
             console.log("loading mealplans")
             return state
         case 'LOADED_MEALPLANS':
+            console.log("loaded mealplans")
             return action.mealPlans
         case 'ADD_MEALPLAN':
             console.log("Saved to backend", action.json)

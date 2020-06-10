@@ -4,7 +4,15 @@ import DayNutritionCard from './DayNutritionCard.js'
 export default class DayCard extends Component {
     
     displayDropZone = () => {
-        return this.props.dragging ? "drop-zone" : null
+        switch(this.props.drag) {
+            case "dragging":
+                return "drop-zone"
+            case null:
+                return ''
+            default:
+                return ''
+        } 
+        
     }
 
     render() {

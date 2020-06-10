@@ -30,7 +30,8 @@ class MealPlansNewContainer extends Component {
         return <button 
                 onDragStart={this.handleDragStart}
                 onDragEnd={this.handleDragEnd} 
-                draggable className="black-button" 
+                draggable 
+                className="black-button" 
                 onMouseDown={this.handleRecipeClick}
                 >
                 {recipe.label}
@@ -38,22 +39,20 @@ class MealPlansNewContainer extends Component {
     }
 
     handleDragStart = (event) => {
-        this.setState({name: event.target.innerText, dragging: true})
-        console.log(event.target.innerText)
+        this.setState({name: event.target.innerText, drag: "dragging"})
+        
     }
     handleDragEnd = (event) => {
-        this.setState({dragging: false})
+        this.setState({drag: false})
     }
 
     handleDrop = (event) => {
         event.preventDefault()
-        console.log("Dropping", event)
         this.props.assignDay(this.state.name, this.state.dropZoneId)
     }
 
     handleDragOver = (event) => {
         event.preventDefault()
-        console.log("Dragging over", event.target.dataset.dayId)
         this.setState({dropZoneId: event.target.dataset.dayId})
     }
 
@@ -70,7 +69,7 @@ class MealPlansNewContainer extends Component {
                     recipes={this.filterArray(start.toString())} 
                     handleDragOver={this.handleDragOver} 
                     handleDrop={this.handleDrop}
-                    dragging={this.state.dragging} 
+                    drag={this.state.drag} 
                 />
             ) 
         }
@@ -88,7 +87,6 @@ class MealPlansNewContainer extends Component {
                 <h1>{this.props.newMealPlan.title}</h1>
                 <MealPlanForm editTitle={this.props.editTitle} />
                 <button onClick={this.handleAddDayClick} className="black-button">Add Day</button>
-                <p>drop zone: {this.state.dropZoneId}</p>
                 <div className="newRecipes">
                     {this.props.newMealPlan.recipes.map(recipe => this.recipeButton(recipe))}
                 </div>
