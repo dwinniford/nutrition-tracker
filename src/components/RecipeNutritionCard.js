@@ -2,24 +2,35 @@ import React, { Component } from 'react'
 
 export default class RecipeNutritionCard extends Component {
     
-    listItem = (nutrient) => {
-        return (<li key={nutrient.label}>
-            
-            {nutrient.name} {nutrient.total_amount} {nutrient.unit} {nutrient.percent_of_daily_value}%
-        </li>)
+    tableRow = (nutrient) => {
+        return (<tr key={nutrient.label}>
+            <td>{nutrient.name}: </td>
+            <td>{nutrient.total_amount} {nutrient.unit}</td>
+            <td>{nutrient.percent_of_daily_value}%</td>
+        </tr>)
     } 
     
     render() {
 
         
         return (
-            <div>
-                <h3>8 Common Shortfall Nutrients</h3>
-                <p>(amount per serving, % of daily value)</p>
-                <ul>
-                    {this.props.nutrients.map((nutrient) => this.listItem(nutrient))}
-                </ul>
-            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="3">8 Common Shortfall Nutrients</th>
+                    </tr>
+                    <tr>
+                        <th>Nutrient</th>
+                        <th>amount/serving</th>
+                        <th>% of daily value</th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                {this.props.nutrients.map((nutrient) => this.tableRow(nutrient))}
+                </tbody>
+            </table>
+        
         )
     }
 }
