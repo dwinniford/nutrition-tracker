@@ -28,7 +28,8 @@ class MealPlansNewContainer extends Component {
     
     recipeButton = (recipe) => {
         return <button 
-                onDragStart={this.handleDragStart} 
+                onDragStart={this.handleDragStart}
+                onDragEnd={this.handleDragEnd} 
                 draggable className="black-button" 
                 onMouseDown={this.handleRecipeClick}
                 >
@@ -39,7 +40,9 @@ class MealPlansNewContainer extends Component {
     handleDragStart = (event) => {
         this.setState({name: event.target.innerText, dragging: true})
         console.log(event.target.innerText)
-
+    }
+    handleDragEnd = (event) => {
+        this.setState({dragging: false})
     }
 
     handleDrop = (event) => {
