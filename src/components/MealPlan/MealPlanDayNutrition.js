@@ -49,8 +49,14 @@ export default class MealPlanDayNutrition extends Component {
         return nutrientSummary
     }
 
+    // calculates totals and then adds unit to each nutrient
+    calculateSummary = () => {
+        const summaryWithTotals = this.reduceTotalsArrays()
+        return this.setUnit(summaryWithTotals)
+    }
+
     displaySummary = () => {
-        const nutrientSummary = this.setUnit(this.reduceTotalsArrays())
+        const nutrientSummary = this.calculateSummary()
         const keys = Object.keys(nutrientSummary)
         return keys.map((name) => this.listItem(nutrientSummary[name], name))
     }
@@ -58,13 +64,14 @@ export default class MealPlanDayNutrition extends Component {
    
     listItem = (data, name) => {
         return (<li>
-            {name}: {data.totalAmount} {data.unit}, {data.totalDailyValue}% dailyValue 
+            {name}: {data.totalAmount} {data.unit}, {data.totalDailyValue}% 
         </li>)
     } 
     
     render() {
         return (
             <div>
+                <p>(total amount, total % of daily value) </p>
                 <ul>
                     {this.displaySummary()}
                 </ul>
