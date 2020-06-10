@@ -5,7 +5,7 @@ export default class SearchResults extends Component {
     
     nutrientSummary = (recipe, nutrient) => {
         return {
-            label: recipe.totalNutrients[nutrient].label,
+            name: recipe.totalNutrients[nutrient].label,
             total_amount: Math.floor(recipe.totalNutrients[nutrient].quantity/recipe.yield),
             percent_of_daily_value: Math.floor(recipe.totalDaily[nutrient].quantity/recipe.yield),
             unit: recipe.totalNutrients[nutrient].unit

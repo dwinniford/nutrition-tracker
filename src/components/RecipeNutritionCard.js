@@ -3,9 +3,9 @@ import React, { Component } from 'react'
 export default class RecipeNutritionCard extends Component {
     
     listItem = (nutrient) => {
-        return (<li>
+        return (<li key={nutrient.label}>
             
-            {nutrient.label} {nutrient.total_amount} {nutrient.unit} {nutrient.percent_of_daily_value}
+            {nutrient.name} {nutrient.total_amount} {nutrient.unit} {nutrient.percent_of_daily_value}%
         </li>)
     } 
     
