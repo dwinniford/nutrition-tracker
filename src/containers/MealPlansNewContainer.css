@@ -4,6 +4,7 @@
   background: rgb(130, 218, 41);
   border-radius: 0.5rem;
   box-shadow: 5px 5px 10px #C0C0C0;
+  position: relative
 }
 
 .drop-zone {
@@ -22,5 +23,21 @@
     transition: background 250ms ease-in-out, transform 150ms ease;
     -webkit-appearance: none;
     -moz-appearance: none;
+}
+
+.corner-x {
+  background-color: rgba(0, 0, 0, 0.7);
+  border: none;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 1px;
+  border-radius: 50%;
+  position: absolute;
+  top: 8px;
+  right: 8px;
 }
 

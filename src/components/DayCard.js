@@ -19,12 +19,15 @@ export default class DayCard extends Component {
         return (
             
                 <div className="day-card" >
+                    <button className='corner-x'>x</button>
                     <h3
                      className={this.displayDropZone()}
                     data-day-id={this.props.day} 
                     onDragOver={this.props.handleDragOver}
                     onDrop={this.props.handleDrop}
-                    >Day {this.props.day}</h3>
+                    >Day {this.props.day}
+                     
+                    </h3>
                     {this.props.recipes.map(recipe => <button className="black-button">{recipe.label}</button>)}
                     <DayNutritionCard recipes={this.props.recipes} />
                 </div>
