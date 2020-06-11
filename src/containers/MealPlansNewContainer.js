@@ -53,7 +53,7 @@ class MealPlansNewContainer extends Component {
     }
 
     handleUnassignDay = (event) => {
-        this.props.unAssignDay(event.target.innerText, event.target.dataset.dayId)
+        this.props.unAssignDay(event.target.dataset.name, event.target.dataset.dayId)
     }
 
     handleDragOver = (event) => {

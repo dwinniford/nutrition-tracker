@@ -15,6 +15,22 @@ export default class DayCard extends Component {
         
     }
 
+    renderRecipeButtons = () => {
+        return this.props.recipes.map(recipe => {
+            return (
+                <button 
+                    className="black-button-container"
+                >
+                    {recipe.label}
+                    <button className="corner-x"
+                    data-day-id={this.props.day}
+                    data-name={recipe.label} 
+                    onClick={this.props.handleUnassignDay}>x</button>
+                </button>
+            )
+        })    
+    }
+
     render() {
         return (
             
@@ -29,7 +45,7 @@ export default class DayCard extends Component {
                     onDrop={this.props.handleDrop}
                     >Day {this.props.day}
                     </h3>
-                    {this.props.recipes.map(recipe => <button data-day-id={this.props.day} onClick={this.props.handleUnassignDay} className="black-button">{recipe.label}</button>)}
+                    {this.renderRecipeButtons()}
                     <DayNutritionCard recipes={this.props.recipes} />
                 </div>
             

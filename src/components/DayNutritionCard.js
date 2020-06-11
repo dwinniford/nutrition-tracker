@@ -5,7 +5,6 @@ export default class DayNutritionCard extends Component {
     nutrientsArray = ["CA", "FE", "MG", "K", "VITA_RAE", "VITC", "VITD", "TOCPHA"]
     
     quantityPerServing = (recipe, nutrient) => {
-        console.log(recipe)
         return recipe.totalNutrients[nutrient].quantity/recipe.yield
     }
 
