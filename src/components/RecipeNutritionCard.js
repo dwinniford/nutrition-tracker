@@ -5,7 +5,7 @@ export default class RecipeNutritionCard extends Component {
     tableRow = (nutrient) => {
         return (<tr key={nutrient.label}>
             <td>{nutrient.name}: </td>
-            <td>{nutrient.total_amount} {nutrient.unit}</td>
+            <td>{Math.floor(nutrient.total_amount)} {nutrient.unit}</td>
             <td>{nutrient.percent_of_daily_value}%</td>
         </tr>)
     } 
@@ -14,11 +14,11 @@ export default class RecipeNutritionCard extends Component {
 
         
         return (
-            <table>
+            <table className="summary-table">
                 <thead>
-                    <tr>
+                    {/* <tr>
                         <th colspan="3">8 Common Shortfall Nutrients</th>
-                    </tr>
+                    </tr> */}
                     <tr>
                         <th>Nutrient</th>
                         <th>amount/serving</th>
