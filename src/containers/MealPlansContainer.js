@@ -6,6 +6,7 @@ import MealPlansList from '../components/MealPlansList.js'
 import MealPlansNewContainer from './MealPlansNewContainer.js'
 import {loadMealPlans} from '../actions/loadMealPlans.js'
 import {connect} from 'react-redux'
+import './MealPlansContainer.css'
 
 class MealPlansContainer extends Component {
 
