@@ -14,23 +14,30 @@ export default class DayNutritionCard extends Component {
     }
 
     listItem = (nutrient) => {
-        return (<li>
-            {`${this.props.recipes[0].totalNutrients[nutrient].label} 
-            ${Math.floor(this.props.recipes.reduce((acc, recipe) => this.quantityPerServing(recipe, nutrient) + acc, 0)) + this.props.recipes[0].totalNutrients[nutrient].unit}, 
-            ${Math.floor(this.props.recipes.reduce((acc, recipe) => this.dailyPercentPerServing(recipe, nutrient) + acc, 0)) + this.props.recipes[0].totalDaily[nutrient].unit}
-            `}
-        </li>)
+        return (<tr key={this.props.recipes[0].totalNutrients[nutrient].label}>
+            <td>{this.props.recipes[0].totalNutrients[nutrient].label}</td>
+            <td>{Math.floor(this.props.recipes.reduce((acc, recipe) => this.quantityPerServing(recipe, nutrient) + acc, 0)) + this.props.recipes[0].totalNutrients[nutrient].unit}</td>
+            <td>{Math.floor(this.props.recipes.reduce((acc, recipe) => this.dailyPercentPerServing(recipe, nutrient) + acc, 0)) + this.props.recipes[0].totalDaily[nutrient].unit}</td>
+        </tr>)
     } 
     
     render() {
         return (
-            <div>
-                <h3>Nutrition Summary</h3>
-                <p>(total amount per serving, total % of daily value)</p>
-                <ul>
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="3">Nutrition Summary</th>
+                    </tr>
+                    <tr>
+                        <th>Nutrient</th>
+                        <th>total amount</th>
+                        <th>total % of daily value</th>
+                    </tr>
+                </thead>
+                <tbody>
                     {this.props.recipes.length > 0 ?this.nutrientsArray.map((nutrient) => this.listItem(nutrient)) : null}
-                </ul>
-            </div>
+                </tbody>
+            </table>
         )
     }
 }

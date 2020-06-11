@@ -22,10 +22,10 @@ export default class DayCard extends Component {
                     className="black-button-container"
                 >
                     {recipe.label}
-                    <button className="corner-x"
+                    <span className="corner-x"
                     data-day-id={this.props.day}
                     data-name={recipe.label} 
-                    onClick={this.props.handleUnassignDay}>x</button>
+                    onClick={this.props.handleUnassignDay}>x</span>
                 </button>
             )
         })    
