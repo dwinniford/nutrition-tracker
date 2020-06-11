@@ -23,11 +23,11 @@ export default class DayNutritionCard extends Component {
     
     render() {
         return (
-            <table>
+            <table className="summary-table">
                 <thead>
-                    <tr>
+                    {/* <tr>
                         <th colspan="3">Nutrition Summary</th>
-                    </tr>
+                    </tr> */}
                     <tr>
                         <th>Nutrient</th>
                         <th>total amount</th>

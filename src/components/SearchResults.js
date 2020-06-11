@@ -21,7 +21,7 @@ export default class SearchResults extends Component {
         
         return (
             <div>
-                <h3>Results for: {this.props.results.q}</h3>
+                <h1>Results for: {this.props.results.q}</h1>
                 <div className="search-results">
                     {this.props.results.hits.map(hit => <RecipeCard nutrients={this.recipeNutrition(hit.recipe)} recipe={hit.recipe} addRecipe={this.props.addRecipe} />)}
                 </div>

@@ -20,13 +20,11 @@ export default class MealPlanForm extends Component {
     
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
+                <form className='one-line-form' onSubmit={this.handleSubmit}>
                     <label>Title</label>
                     <input onChange={this.handleChange} type="text" value={this.state.text}/>
-                    <input className="black-button" type="submit"/>
+                    <input className="black-button" type="submit" value="Update Name"/>
                 </form>
-            </div>
         )
     }
 }

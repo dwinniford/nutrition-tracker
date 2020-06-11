@@ -97,8 +97,10 @@ class MealPlansNewContainer extends Component {
         return (
             <div>
                 <h1>{this.props.newMealPlan.title}</h1>
-                <MealPlanForm editTitle={this.props.editTitle} />
-                <button onClick={this.handleAddDayClick} className="black-button">Add Day</button>
+                <div className="form-bar">
+                    <MealPlanForm editTitle={this.props.editTitle} />
+                    <button onClick={this.handleAddDayClick} className="black-button">Add Day</button>
+                </div>
                 <div className="newRecipes">
                     {this.props.newMealPlan.recipes.map(recipe => this.recipeButton(recipe))}
                 </div>

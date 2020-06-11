@@ -1,9 +1,10 @@
 .day-card {
     padding: 10px;
-  text-align: center;
+  /* text-align: center;
+  align-content: center; */
   background: rgb(130, 218, 41);
   border-radius: 0.5rem;
-  box-shadow: 5px 5px 10px #C0C0C0;
+  /* box-shadow: 5px 5px 10px #C0C0C0; */
   position: relative
   
 }
@@ -16,8 +17,8 @@
     text-decoration: none;
     background: rgba(0, 0, 0, 0.5);
     color: #ffffff;
-    font-family: aleoLight;
-    font-size: 1rem;
+    /* font-family: aleoLight;
+    font-size: 1rem; */
     line-height: 1;
     cursor: pointer;
     text-align: center;
@@ -42,6 +43,15 @@
   right: 8px;
 }
 
+.summary-table {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+}
+.summary-table > thead, tbody, tr {
+  display: contents
+}
+
 .black-button-container {
   position: relative;
   display: inline-block;
@@ -60,4 +70,9 @@
   -webkit-appearance: none;
   -moz-appearance: none;
 }
+
+/* .form-bar {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+} */
 

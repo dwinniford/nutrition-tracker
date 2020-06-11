@@ -22,7 +22,7 @@ export default class SearchForm extends Component {
         return (
             <div >
                 <h1>Search for a Recipe</h1>
-                <form className="search-form" onSubmit={this.handleSubmit}>
+                <form className="one-line-form" onSubmit={this.handleSubmit}>
                     
                     <label>Recipe Name</label>
                     <input type="text" onChange={this.handleChange} value={this.state.text}/>

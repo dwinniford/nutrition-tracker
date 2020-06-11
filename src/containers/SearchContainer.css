@@ -23,7 +23,7 @@
     border: 5px;
 }
 
-.search-form {
+.one-line-form {
     /* background: rgba(0, 0, 0, 0.7); */
     padding: 10px;
     display: grid;
@@ -32,8 +32,12 @@
     font-size: larger;
 }
 
-.search-form > input {
+.one-line-form > input {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     font-size: larger
+}
+.one-line-form > label {
+    font-size: larger;
+    align-self: center;
 }
