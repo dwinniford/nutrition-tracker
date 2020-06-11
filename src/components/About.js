@@ -4,7 +4,7 @@ export default class About extends Component {
     render() {
         return (
             <div>
-                <h1>About!</h1>
+                <h1>About Nutrition Tracker</h1>
                 <div className="text-content-card">
                     <p>
                         Nutrition Tracker is intended as an educational tool to help users think about their diet more carefully. 
