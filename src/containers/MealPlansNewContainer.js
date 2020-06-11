@@ -52,6 +52,10 @@ class MealPlansNewContainer extends Component {
         this.props.assignDay(this.state.name, this.state.dropZoneId)
     }
 
+    handleUnassignDay = (event) => {
+        this.props.unAssignDay(event.target.innerText, event.target.dataset.dayId)
+    }
+
     handleDragOver = (event) => {
         event.preventDefault()
         this.setState({dropZoneId: event.target.dataset.dayId})
@@ -76,6 +80,7 @@ class MealPlansNewContainer extends Component {
                     handleDrop={this.handleDrop}
                     drag={this.state.drag}
                     handleRemoveDay={this.handleRemoveDay} 
+                    handleUnassignDay={this.handleUnassignDay}
                 />
             ) 
         }
@@ -114,6 +119,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         assignDay: (name, day) => dispatch({type: "ASSIGN_DAY", name, day}),
+        unAssignDay: (name, day) => dispatch({type: "UNASSIGN_DAY", name, day}),
         editTitle: (title) => dispatch({type: 'EDIT_TITLE', title}),
         addDay: () => dispatch({type: 'ADD_DAY'}),
         removeDay: (dayId) => dispatch({type: 'REMOVE_DAY', dayId}),

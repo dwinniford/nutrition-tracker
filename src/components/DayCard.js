@@ -29,7 +29,7 @@ export default class DayCard extends Component {
                     onDrop={this.props.handleDrop}
                     >Day {this.props.day}
                     </h3>
-                    {this.props.recipes.map(recipe => <button className="black-button">{recipe.label}</button>)}
+                    {this.props.recipes.map(recipe => <button data-day-id={this.props.day} onClick={this.props.handleUnassignDay} className="black-button">{recipe.label}</button>)}
                     <DayNutritionCard recipes={this.props.recipes} />
                 </div>
             

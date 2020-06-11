@@ -18,6 +18,17 @@ export default function newMealPlan(state = initialState, action) {
             return {...state, 
                 recipes: state.recipes.map(recipe => assignDay(recipe, action.name, action.day))
             }
+        case 'UNASSIGN_DAY':
+            const unAssignDay = (recipe, name, targetDay) => {
+                if (recipe.label === name ) {
+                    return {...recipe, days: [...recipe.days.filter(day => day !== targetDay )]} 
+                } else {
+                    return recipe
+                }
+            }
+            return {...state, 
+                recipes: state.recipes.map(recipe => unAssignDay(recipe, action.name, action.day))
+            } 
         case 'EDIT_TITLE':
             return {...state, title: action.title}
         case 'ADD_DAY':
