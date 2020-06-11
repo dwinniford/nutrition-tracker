@@ -2,3 +2,15 @@
   text-align: center;
 }
 
+h1 {
+  color: white
+}
+
+.text-content-card {
+  color: white;
+  font-size: larger;
+}
+
+a {
+  color: white
+}

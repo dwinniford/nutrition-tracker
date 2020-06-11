@@ -8,7 +8,18 @@ export default class Home extends Component {
     render() {
         return (
             <div>
-                <h1>Home!</h1>
+                <h1>Welcome to Nutrition Tracker</h1>
+                <div className="text-content-card">
+                    <p>
+                        Look up recipes 
+                    </p>
+                    <p>
+                        Organize them in meal plans
+                    </p>
+                    <p>
+                        Check out the nutrition summary for 8 important nutrients
+                    </p>
+                </div>
             </div>
         )
     }
