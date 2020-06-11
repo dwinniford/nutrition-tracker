@@ -20,12 +20,13 @@ export default class SearchForm extends Component {
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <h1>Search for a Recipe</h1>
+            <div >
+                <h1>Search for a Recipe</h1>
+                <form className="search-form" onSubmit={this.handleSubmit}>
+                    
                     <label>Recipe Name</label>
                     <input type="text" onChange={this.handleChange} value={this.state.text}/>
-                    <input className="black-button" type="Submit" />
+                    <input className="black-button" type="Submit" value="Search" />
                 </form>
             </div>
         )
