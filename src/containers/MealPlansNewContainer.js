@@ -61,6 +61,10 @@ class MealPlansNewContainer extends Component {
         return this.props.newMealPlan.recipes.filter(recipe => recipe.days.includes(day))
     }
 
+    handleRemoveDay = (event) => {
+        this.props.removeDay(event.target.dataset.dayId)
+    }
+
     renderDayCards = () => {
         let dayCards = []
         for (let start = 1; start <= this.props.newMealPlan.days; start++) {
@@ -70,7 +74,8 @@ class MealPlansNewContainer extends Component {
                     recipes={this.filterArray(start.toString())} 
                     handleDragOver={this.handleDragOver} 
                     handleDrop={this.handleDrop}
-                    drag={this.state.drag} 
+                    drag={this.state.drag}
+                    handleRemoveDay={this.handleRemoveDay} 
                 />
             ) 
         }
@@ -111,6 +116,7 @@ const mapDispatchToProps = dispatch => {
         assignDay: (name, day) => dispatch({type: "ASSIGN_DAY", name, day}),
         editTitle: (title) => dispatch({type: 'EDIT_TITLE', title}),
         addDay: () => dispatch({type: 'ADD_DAY'}),
+        removeDay: (dayId) => dispatch({type: 'REMOVE_DAY', dayId}),
         saveMealPlan: (mealPlan, mealPlans) => dispatch(saveMealPlan(mealPlan, mealPlans))
     }
 }
