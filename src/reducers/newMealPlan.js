@@ -1,4 +1,4 @@
-const initialState = {recipes: [], title: "New Meal Plan", days: 1}
+const initialState = {recipes: [], title: "New Meal Plan", days: 1, redirectPath: null}
 
 export default function newMealPlan(state = initialState, action) {
     switch (action.type) {
@@ -27,8 +27,9 @@ export default function newMealPlan(state = initialState, action) {
             return state
         case "SAVED_MEALPLAN":
             console.log("Saved to backend", action.json)
-
             return state
+        case "REDIRECT":
+            return {...state, redirectPath: `/mealplans/${action.redirectId}`}
         case "RESET_NEW_MEALPLAN_STATE":
             return initialState
             

@@ -1,12 +1,10 @@
-import Redirect from 'react-router'
-
 const BACKEND_URL = "http://localhost:3000"
 
 function getCSRFToken() {
     return unescape(document.cookie.split('=')[1])
   }
 
-export const saveMealPlan = (mealPlan) => {
+export const saveMealPlan = (mealPlan, mealPlans) => {
     return (dispatch) => {
         dispatch({type: "SAVING_MEALPLAN"})
         let configObj = {
@@ -22,6 +20,7 @@ export const saveMealPlan = (mealPlan) => {
             .then(resp => resp.json())
             .then(function(json) {
                 dispatch({type: "ADD_MEALPLAN", json})
+                dispatch({type: 'REDIRECT', redirectId: (mealPlans.length)})
                 dispatch({type: 'RESET_NEW_MEALPLAN_STATE'})
             })
     }

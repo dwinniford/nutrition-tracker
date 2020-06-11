@@ -14,8 +14,7 @@ class MealPlansNewContainer extends Component {
             dropZoneId: null,
             name: '',
             editTitle: false,
-            dragging: false,
-            saved: false
+            dragging: false
         }
     }
 
@@ -80,8 +79,8 @@ class MealPlansNewContainer extends Component {
 
     handleSave = (event) => {
         event.preventDefault()
-        this.props.saveMealPlan(this.props.newMealPlan)
-        this.setState({saved: true})
+        this.props.saveMealPlan(this.props.newMealPlan, this.props.mealPlans)
+        
     }
 
     render() {
@@ -95,14 +94,16 @@ class MealPlansNewContainer extends Component {
                 </div>
                 {this.renderDayCards()}
                 <button onClick={this.handleSave} className="black-button">Save</button>
-                {this.state.saved ? <Redirect to="/mealplans" /> : null}
+                {this.props.newMealPlan.redirectPath ? <Redirect to={this.props.newMealPlan.redirectPath} /> : null}
             </div>
         )
     }
 }
 
 const mapStateToProps = state => {
-    return {newMealPlan: state.newMealPlan}
+    return {newMealPlan: state.newMealPlan,
+    mealPlans: state.mealPlans
+    }
 }
 
 const mapDispatchToProps = dispatch => {
@@ -110,7 +111,7 @@ const mapDispatchToProps = dispatch => {
         assignDay: (name, day) => dispatch({type: "ASSIGN_DAY", name, day}),
         editTitle: (title) => dispatch({type: 'EDIT_TITLE', title}),
         addDay: () => dispatch({type: 'ADD_DAY'}),
-        saveMealPlan: (mealPlan) => dispatch(saveMealPlan(mealPlan))
+        saveMealPlan: (mealPlan, mealPlans) => dispatch(saveMealPlan(mealPlan, mealPlans))
     }
 }
 
