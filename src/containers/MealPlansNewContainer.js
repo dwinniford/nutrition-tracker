@@ -101,7 +101,7 @@ class MealPlansNewContainer extends Component {
                     <MealPlanForm editTitle={this.props.editTitle} />
                     <button onClick={this.handleAddDayClick} className="black-button">Add Day</button>
                 </div>
-                <div className="newRecipes">
+                <div className="recipe-buttons-container">
                     {this.props.newMealPlan.recipes.map(recipe => this.recipeButton(recipe))}
                 </div>
                 {this.renderDayCards()}

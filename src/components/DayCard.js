@@ -45,7 +45,10 @@ export default class DayCard extends Component {
                     onDrop={this.props.handleDrop}
                     >Day {this.props.day}
                     </h3>
-                    {this.renderRecipeButtons()}
+                    <div className="recipe-buttons-container">
+                        {this.renderRecipeButtons()}
+                    </div>
+                    <h3>Nutrition Summary</h3>
                     <DayNutritionCard recipes={this.props.recipes} />
                 </div>
             

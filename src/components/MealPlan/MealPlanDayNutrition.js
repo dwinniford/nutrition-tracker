@@ -74,7 +74,7 @@ export default class MealPlanDayNutrition extends Component {
     
     render() {
         return (
-            <table>
+            <table className="summary-table">
                 <thead>
                     <tr>
                         <th>Nutrient</th>

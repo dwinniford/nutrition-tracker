@@ -23,11 +23,18 @@ export default class MealPlanDay extends Component {
 
     render() {
         return (
+            <div>
             <div className="day-card">
                 <h3>Day {this.props.day.number}</h3>
-                {this.renderRecipeButtons()}
+                <div className="recipe-buttons-container">
+                    {this.renderRecipeButtons()}
+                </div>
                 <MealPlanDayNutrition recipes={this.props.day.recipes}/>
+                <div className="search-results">
                 {this.props.day.recipes.map(r => <RecipeCard recipe={r} nutrients={this.recipeNutrition(r)} />)}
+                </div>
+            </div>
+            
             </div>
         )
     }
