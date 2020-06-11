@@ -27,7 +27,7 @@ class MealPlansContainer extends Component {
                     {/* <Route path={`${this.props.match.url}/:mealPlanId`}>
                         <MealPlanShowContainer match={this.props.match} mealPlans={this.props.mealPlans} />
                     </Route> */}
-                    <Route path={`${this.props.match.url}/:mealPlanId`} render={routerProps => <MealPlanShowContainer {...routerProps}  />} />
+                    <Route path={`${this.props.match.url}/:mealPlanId`} render={routerProps => <MealPlanShowContainer {...routerProps} mealPlans={this.props.mealPlans}  />} />
                 </Switch>
             </div>
         )

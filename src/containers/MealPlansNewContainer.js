@@ -5,6 +5,7 @@ import './MealPlansNewContainer.css'
 import MealPlanForm from '../components/MealPlanForm.js'
 import DayCard from '../components/DayCard.js'
 import {saveMealPlan} from '../actions/saveMealPlan.js'
+import {Redirect} from 'react-router-dom'
 
 class MealPlansNewContainer extends Component {
     constructor(props) {
@@ -13,7 +14,8 @@ class MealPlansNewContainer extends Component {
             dropZoneId: null,
             name: '',
             editTitle: false,
-            dragging: false
+            dragging: false,
+            saved: false
         }
     }
 
@@ -79,6 +81,7 @@ class MealPlansNewContainer extends Component {
     handleSave = (event) => {
         event.preventDefault()
         this.props.saveMealPlan(this.props.newMealPlan)
+        this.setState({saved: true})
     }
 
     render() {
@@ -92,6 +95,7 @@ class MealPlansNewContainer extends Component {
                 </div>
                 {this.renderDayCards()}
                 <button onClick={this.handleSave} className="black-button">Save</button>
+                {this.state.saved ? <Redirect to="/mealplans" /> : null}
             </div>
         )
     }

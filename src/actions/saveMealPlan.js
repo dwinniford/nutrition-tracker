@@ -1,3 +1,5 @@
+import Redirect from 'react-router'
+
 const BACKEND_URL = "http://localhost:3000"
 
 function getCSRFToken() {

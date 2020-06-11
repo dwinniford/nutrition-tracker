@@ -1,25 +1,19 @@
 import React, { Component } from 'react'
 import MealPlanDay from '../components/MealPlan/MealPlanDay.js'
-import {connect} from 'react-redux'
 
-class MealPlanShowContainer extends Component {
-    constructor(props) {
-        super(props) 
-        this.state = {mealPlan: this.props.mealPlans[this.props.match.params.mealPlanId]}
-    }
-    // mealPlan = this.props.mealPlans[this.props.match.params.mealPlanId]
-
+export default class MealPlanShowContainer extends Component {
 
     renderDays = () => {
         return this.props.mealPlans[this.props.match.params.mealPlanId].days.map(day => <MealPlanDay day={day} />)
     }
     
+    // need to only read from props in render so that the component will recognize when it needs to update
     render() {
         if (this.props.mealPlans.length > 0) {
             return (
                 <div>
                     <h1>{this.props.mealPlans[this.props.match.params.mealPlanId].title}</h1>
-                    {/* <h1>{this.state.mealPlan.title}</h1> */}
+                   
                     <div>
                      {this.renderDays()}
                     </div>
@@ -30,14 +24,5 @@ class MealPlanShowContainer extends Component {
                 <div>loading</div>
             )
         }
-        
     }
 }
-
-const mapStateToProps = (state) => {
-    return {
-        mealPlans: state.mealPlans
-    }
-}
-
-export default connect(mapStateToProps)(MealPlanShowContainer)
