@@ -16,6 +16,8 @@
     
 }
 
+
+
 .card-buttons {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -28,6 +30,7 @@
     padding: 10px;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
+    grid-gap: 5px;
     color: white;
     font-size: larger;
 }
@@ -41,3 +44,26 @@
     font-size: larger;
     align-self: center;
 }
+
+@media (max-width: 700px) {
+  .one-line-form {
+      /* grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); */
+      grid-template-columns: 200px;
+      justify-content: center;
+  }
+}
+
+@media (max-width: 380px) {
+    /* .recipe-card {
+        width: 100%;
+    } */
+    .search-results {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        min-width: 300px;
+    }
+    .recipe-card img {
+        width: 100%;
+        padding: 0;
+    }
+}
+

@@ -27,6 +27,17 @@ div.App {
   
 }
 
+@media (max-width: 400px) {
+  div.App {
+    /* padding: 0; */
+    
+  }
+  body {
+    margin: 0;
+  }
+}
+
+
 
 
 
