@@ -24,6 +24,16 @@ export default class RecipeCard extends Component {
     handleContentToggle = () => {
         this.state.displayNutrition ? this.setState({displayNutrition: false}) : this.setState({displayNutrition: true})
     }
+
+    displayAddToMealPlan = () => {
+        if (typeof this.props.addRecipe === "function") {
+            return (
+                <button className="black-button" onClick={this.handleAddRecipe}>
+                    Add to Meal Plan
+                </button>
+            )
+        }
+    }
     
     render() {
         return (
@@ -31,9 +41,7 @@ export default class RecipeCard extends Component {
                 {this.displayContent()}
                 <div className="card-buttons">
                     <a className="black-button" href={this.props.recipe.url}>{this.props.recipe.label}</a>
-                    <button className="black-button" onClick={this.handleAddRecipe}>
-                        Add to Meal Plan
-                    </button>
+                    {this.displayAddToMealPlan()}
                     <button className="black-button" onClick={this.handleContentToggle}>
                         Nutrition Info
                     </button>
