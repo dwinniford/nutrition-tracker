@@ -14,7 +14,8 @@ class MealPlansNewContainer extends Component {
             dropZoneId: null,
             name: '',
             editTitle: false,
-            dragging: false
+            dragging: false,
+            fullDays: {"1": false}
         }
     }
 
@@ -69,6 +70,8 @@ class MealPlansNewContainer extends Component {
         this.props.removeDay(event.target.dataset.dayId)
     }
 
+    
+
     renderDayCards = () => {
         let dayCards = []
         for (let start = 1; start <= this.props.newMealPlan.days; start++) {
@@ -87,8 +90,35 @@ class MealPlansNewContainer extends Component {
         return dayCards
     }
 
+    recipesIncludeDay = (day) => {
+        return this.props.newMealPlan.recipes.map(recipe => {
+            if (recipe.days) {
+                return recipe.days.includes(day)
+            } else {
+                return false 
+            }
+           
+        })
+    }
+
+    eachDayHasRecipe = () => {
+        let counter = 1
+        let booleanArray = []
+        while(counter <= this.props.newMealPlan.days  ) {
+            let array = this.recipesIncludeDay(counter.toString())
+            
+            booleanArray.push(array.includes(true))
+            counter += 1
+        }
+        
+        return !booleanArray.includes(false)
+    }
+
     displaySaveButton = () => {
-        if (this.props.newMealPlan.title !== "New Meal Plan" && this.props.newMealPlan.title !== "") {
+        if (this.props.newMealPlan.title !== "New Meal Plan" 
+            && this.props.newMealPlan.title !== ""
+            && this.props.newMealPlan.recipes.length > 0
+            && this.eachDayHasRecipe()) {
             return <button onClick={this.handleSave} className="black-button">Save</button>
         }
         
