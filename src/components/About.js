@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
-export default class About extends Component {
-    render() {
+export default function About()  {
+    
         return (
             <div>
                 <h1>About Nutrition Tracker</h1>
@@ -17,5 +17,4 @@ export default class About extends Component {
                 </div>
             </div>
         )
-    }
 }

@@ -87,6 +87,13 @@ class MealPlansNewContainer extends Component {
         return dayCards
     }
 
+    displaySaveButton = () => {
+        if (this.props.newMealPlan.title !== "New Meal Plan" && this.props.newMealPlan.title !== "") {
+            return <button onClick={this.handleSave} className="black-button">Save</button>
+        }
+        
+    }
+
     handleSave = (event) => {
         event.preventDefault()
         this.props.saveMealPlan(this.props.newMealPlan, this.props.mealPlans)
@@ -105,7 +112,7 @@ class MealPlansNewContainer extends Component {
                     {this.props.newMealPlan.recipes.map(recipe => this.recipeButton(recipe))}
                 </div>
                 {this.renderDayCards()}
-                <button onClick={this.handleSave} className="black-button">Save</button>
+                {this.displaySaveButton()}
                 {this.props.newMealPlan.redirectPath ? <Redirect to={this.props.newMealPlan.redirectPath} /> : null}
             </div>
         )

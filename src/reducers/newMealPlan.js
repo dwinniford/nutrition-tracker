@@ -36,6 +36,7 @@ export default function newMealPlan(state = initialState, action) {
         case 'REMOVE_DAY':
             return {...state, days: state.days - 1}
         case "SAVING_MEALPLAN":
+            
             console.log("saving")
             return state
         case "SAVED_MEALPLAN":
