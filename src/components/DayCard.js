@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import DayNutritionCard from './DayNutritionCard.js'
 
 export default function DayCard(props) {
