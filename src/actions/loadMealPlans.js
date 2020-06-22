@@ -1,9 +1,5 @@
 const BACKEND_URL = "http://localhost:3000"
 
-function getCSRFToken() {
-    return unescape(document.cookie.split('=')[1])
-  }
-
 export const loadMealPlans = () => {
     return (dispatch) => {
         dispatch({type: "LOADING_MEALPLANS"})
