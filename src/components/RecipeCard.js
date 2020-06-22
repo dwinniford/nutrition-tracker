@@ -43,7 +43,7 @@ export default class RecipeCard extends Component {
                     <a className="black-button" href={this.props.recipe.url}>{this.props.recipe.label}</a>
                     {this.displayAddToMealPlan()}
                     <button className="black-button" onClick={this.handleContentToggle}>
-                        Nutrition Info
+                        {this.state.displayNutrition ? "Recipe Image" : "Nutrition Info" }
                     </button>
                     <p>from: {this.props.recipe.source}</p>
                 </div>
