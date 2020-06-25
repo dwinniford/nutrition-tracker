@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
 
+let BACKEND_URL 
+if (window.location.href.includes("localhost")) {
+    BACKEND_URL = 'http://localhost:3000';
+} else if (window.location.href.includes("nutrient-rich-recipes.netlify.app")) {
+    BACKEND_URL = "https://nutrition-tracker-43434.herokuapp.com/.app"
+}
+
 export default class Home extends Component {
     componentDidMount() {
-        fetch("http://localhost:3000/", {credentials: 'include'})
+        fetch(BACKEND_URL, {credentials: 'include'})
     }
     
     render() {

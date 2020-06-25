@@ -1,7 +1,7 @@
 let BACKEND_URL 
 if (window.location.href.includes("localhost")) {
     BACKEND_URL = 'http://localhost:3000';
-} else if (window.location.href.includes("songweb.app")) {
+} else if (window.location.href.includes("nutrient-rich-recipes.netlify.app")) {
     BACKEND_URL = "https://nutrition-tracker-43434.herokuapp.com/.app"
 }
 
