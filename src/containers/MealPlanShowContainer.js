@@ -4,7 +4,7 @@ import MealPlanDay from '../components/MealPlan/MealPlanDay.js'
 export default class MealPlanShowContainer extends Component {
 
     renderDays = () => {
-        return this.props.mealPlans[this.props.match.params.mealPlanId].days.map(day => <MealPlanDay day={day} />)
+        return this.props.mealPlans[this.props.match.params.mealPlanId].days.map(day => <MealPlanDay key={day.number} day={day} />)
     }
     
     // need to only read from props in render so that the component will recognize when it needs to update

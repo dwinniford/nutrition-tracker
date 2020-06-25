@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class RecipeNutritionCard extends Component {
     
     tableRow = (nutrient) => {
-        return (<tr key={nutrient.label}>
+        return (<tr key={nutrient.name}>
             <td>{nutrient.name}: </td>
             <td>{Math.floor(nutrient.total_amount)} {nutrient.unit}</td>
             <td>{nutrient.percent_of_daily_value}%</td>

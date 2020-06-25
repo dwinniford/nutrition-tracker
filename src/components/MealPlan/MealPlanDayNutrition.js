@@ -65,7 +65,7 @@ export default class MealPlanDayNutrition extends Component {
 
    
     listItem = (data, name) => {
-        return (<tr>
+        return (<tr key={name}>
             <td>{name}:</td>
             <td>{data.totalAmount} {data.unit}</td>
             <td>{data.totalDailyValue}%</td>

@@ -31,7 +31,7 @@ export default class MealPlanDay extends Component {
                 </div> */}
                 <MealPlanDayNutrition recipes={this.props.day.recipes}/>
                 <div className="search-results">
-                {this.props.day.recipes.map(r => <RecipeCard recipe={r} nutrients={this.recipeNutrition(r)} />)}
+                {this.props.day.recipes.map(r => <RecipeCard key={r.label} recipe={r} nutrients={this.recipeNutrition(r)} />)}
                 </div>
             </div>
             

@@ -77,6 +77,7 @@ class MealPlansNewContainer extends Component {
         for (let start = 1; start <= this.props.newMealPlan.days; start++) {
             dayCards.push(
                 <DayCard 
+                    key={start}
                     day={start.toString()} 
                     recipes={this.filterArray(start.toString())} 
                     handleDragOver={this.handleDragOver} 
