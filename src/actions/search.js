@@ -12,7 +12,12 @@ export const search = (text) => {
         fetch(BACKEND_URL + `/search/recipe?q=${text}`)
             .then(resp => resp.json())
             .then(json => {
-                dispatch({type: 'SEARCH', searchResults: json})
+                if (json.status === "error") {
+                    dispatch({type: 'SEARCH_ERROR', message: json.message})
+                } else {
+                    dispatch({type: 'SEARCH', searchResults: json})
+                }
+                
             })
     }
 }
