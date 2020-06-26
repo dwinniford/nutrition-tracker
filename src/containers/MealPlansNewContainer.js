@@ -6,15 +6,16 @@ import MealPlanForm from '../components/MealPlanForm.js'
 import DayCard from '../components/DayCard.js'
 import {saveMealPlan} from '../actions/saveMealPlan.js'
 import {Redirect} from 'react-router-dom'
+import {DragDropContainer} from 'react-drag-drop-container'
+
 
 class MealPlansNewContainer extends Component {
     constructor(props) {
         super(props) 
         this.state = {
-            dropZoneId: null,
             name: '',
             editTitle: false,
-            dragging: false,
+            drag: false,
             fullDays: {"1": false}
         }
     }
@@ -23,43 +24,36 @@ class MealPlansNewContainer extends Component {
         this.props.addDay()
     }
 
-    // handleRecipeClick = (event) => {
-    //     this.setState({name: event.target.innerText})
-    //     console.log(event.target.innerText)
-    // }
+   
     
     recipeButton = (recipe) => {
-        return <button 
-                onDragStart={this.handleDragStart}
-                onDragEnd={this.handleDragEnd} 
-                draggable 
-                className="black-button" 
-                onMouseDown={this.handleRecipeClick}
-                >
+        return <DragDropContainer 
+        dragData={{name: recipe.label}}
+        // dragData object is passed to dragStart event
+        onDragStart={this.handleDragDropContainerStart}
+        onDrop={this.handleDragDropContainerDrop}
+        onDragEnd={this.handleDragDropContainerEnd}
+        targetKey="day"> 
+        <button className="black-button">
                 {recipe.label}
         </button>
+        </DragDropContainer>
     }
 
-    handleDragStart = (event) => {
-        this.setState({name: event.target.innerText, drag: "dragging"})
-        
+    handleDragDropContainerStart = (dragData) => {
+        this.setState({name: dragData.name, drag: "dragging"})
     }
-    handleDragEnd = (event) => {
+    
+    handleDragDropContainerDrop = (event) => {
+        this.props.assignDay(this.state.name, event.dropData.day)
+    }
+
+    handleDragDropContainerEnd = (dragData) => {
         this.setState({drag: false})
     }
-
-    handleDrop = (event) => {
-        event.preventDefault()
-        this.props.assignDay(this.state.name, this.state.dropZoneId)
-    }
-
+   
     handleUnassignDay = (event) => {
         this.props.unAssignDay(event.target.dataset.name, event.target.dataset.dayId)
-    }
-
-    handleDragOver = (event) => {
-        event.preventDefault()
-        this.setState({dropZoneId: event.target.dataset.dayId})
     }
 
     filterArray = (day) => {
@@ -80,8 +74,8 @@ class MealPlansNewContainer extends Component {
                     key={start}
                     day={start.toString()} 
                     recipes={this.filterArray(start.toString())} 
-                    handleDragOver={this.handleDragOver} 
-                    handleDrop={this.handleDrop}
+                    // handleDragOver={this.handleDragOver} 
+                    // handleDrop={this.handleDrop}
                     drag={this.state.drag}
                     handleRemoveDay={this.handleRemoveDay} 
                     handleUnassignDay={this.handleUnassignDay}
@@ -140,6 +134,7 @@ class MealPlansNewContainer extends Component {
                     <button onClick={this.handleAddDayClick} className="black-button">Add Day</button>
                 </div>
                 <div className="recipe-buttons-container">
+                    
                     {this.props.newMealPlan.recipes.map(recipe => this.recipeButton(recipe))}
                 </div>
                 {this.renderDayCards()}

@@ -1,5 +1,6 @@
 import React from 'react'
 import DayNutritionCard from './DayNutritionCard.js'
+import {DropTarget} from 'react-drag-drop-container'
 
 export default function DayCard(props) {
     
@@ -7,7 +8,7 @@ export default function DayCard(props) {
         switch(props.drag) {
             case "dragging":
                 return "drop-zone"
-            case null:
+            case false:
                 return ''
             default:
                 return ''
@@ -38,13 +39,11 @@ export default function DayCard(props) {
             <button data-day-id={props.day} 
             onClick={props.handleRemoveDay} 
             className='corner-x'>x</button>
-            <h3
-                className={displayDropZone()}
-            data-day-id={props.day} 
-            onDragOver={props.handleDragOver}
-            onDrop={props.handleDrop}
-            >Day {props.day}
+            <DropTarget targetKey="day" dropData={{day: props.day}}>
+            <h3 className={displayDropZone()} >
+                Day {props.day}
             </h3>
+            </DropTarget>
             <div className="recipe-buttons-container">
                 {renderRecipeButtons()}
             </div>
