@@ -4,10 +4,10 @@ export default function About()  {
     
         return (
             <div>
-                <h1>About Nutrition Tracker</h1>
+                <h1>About Nutrient Rich Recipes</h1>
                 <div className="text-content-card">
                     <p>
-                        Nutrition Tracker is intended as an educational tool to help users think about their diet more carefully. 
+                        Nutrient Rich Recipes is intended as an educational tool to help users think about their diet more carefully. 
                     </p>
                     <p>
                         The nutrients selected in this app are based off this 

@@ -15,7 +15,7 @@ export default class Home extends Component {
     render() {
         return (
             <div>
-                <h1>Welcome to Nutrition Tracker</h1>
+                <h1>Welcome to Nutrient Rich Recipes</h1>
                 <div className="text-content-card">
                     <p>
                         Look up recipes 
