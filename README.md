@@ -2,7 +2,7 @@
 
 # Nutrition Tracker
 
-This is an educational health app designed to help people think more carefully about the nutrients in their diet.  Users can search for recipes on the web using the Edamam recipe API and view nutritional information for each recipe.  Users can then organize these recipes into meal plans and view a nutritional summary for each day.  Meal plans can be saved and shared with other users.  Checkout the [demo](https://www.youtube.com/watch?v=pUkzmVL62bk).
+This is an educational health app designed to help people think more carefully about the nutrients in their diet.  Users can search for recipes on the web using the Edamam recipe API and view nutritional information for each recipe.  Users can then organize these recipes into meal plans and view a nutritional summary for each day.  Meal plans can be saved and shared with other users.  Checkout the [demo](https://www.youtube.com/watch?v=pUkzmVL62bk) and the [website](https://nutrient-rich-recipes.info/).
 
 ## Getting Started
 Fork and Clone this repository and cd into the folder.
